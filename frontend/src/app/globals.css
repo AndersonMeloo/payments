@@ -41,6 +41,8 @@
   --radius-md: calc(var(--radius) - 2px);
   --radius-lg: var(--radius);
   --radius-xl: calc(var(--radius) + 4px);
+
+  --bg-principal: linear-gradient(180deg, #0e1729 0%, #162b46 100%);
 }
 
 :root {
@@ -76,6 +78,8 @@
   --sidebar-accent-foreground: oklch(0.205 0 0);
   --sidebar-border: oklch(0.922 0 0);
   --sidebar-ring: oklch(0.708 0 0);
+
+  --bg-principal: linear-gradient(180deg, #0e1729 0%, #162b46 100%);
 }
 
 .dark {
@@ -113,9 +117,15 @@
 }
 
 @layer base {
+
+  .bg-principal {
+    background: var(--bg-principal);
+  }
+
   * {
     @apply border-border outline-ring/50;
   }
+
   body {
     @apply bg-background text-foreground;
   }
