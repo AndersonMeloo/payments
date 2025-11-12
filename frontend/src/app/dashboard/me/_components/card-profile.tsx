@@ -1,5 +1,6 @@
 import Image from "next/image";
 import Name from "./name";
+import Description from "./description";
 
 interface CardProfileProps {
 
@@ -35,6 +36,10 @@ function CardProfile({ user }: CardProfileProps) {
                 <div className="">
                     <Name
                         initialName={user.name ?? "Digite seu nome"}
+                    />
+
+                    <Description
+                        initialDescription={user.bio ?? 'Escreva uma breve descrição sobre você.'}
                     />
                 </div>
 

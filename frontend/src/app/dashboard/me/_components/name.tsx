@@ -3,6 +3,7 @@
 import { ChangeEvent, useState, useRef } from "react";
 import { debounce } from 'lodash'
 import { changeName } from '../_actions/change-name';
+import { toast } from "sonner";
 
 function Name({ initialName }: { initialName: string }) {
 
@@ -26,9 +27,12 @@ function Name({ initialName }: { initialName: string }) {
 
                     if (response.error) {
                         console.log('Erro ao salvar o nome:', response.error)
+                        toast.error('Erro ao salvar o nome.')
                         setName(originalName)
                         return
                     }
+
+                    toast.success('Nome salvo com sucesso!')
 
                     console.log('Salvo com sucesso:')
 
