@@ -29,9 +29,9 @@ export function Header() {
               <TooltipTrigger asChild>
                 <Link
                   href="/dashboard"
-                  className="flex flex-col items-center gap-2 text-sm font-medium transition-colors hover:text-primary w-full py-3 rounded-lg hover:bg-accent cursor-pointer"
+                  className="group flex flex-col items-center gap-2 text-sm font-medium transition-colors hover:text-primary w-full py-3 rounded-lg hover:bg-[linear-gradient(180deg,#25244D_0%,#1F1E46_100%)] cursor-pointer"
                 >
-                  <LayoutDashboard className="h-5 w-5 text-[#3cc9f5]" />
+                  <LayoutDashboard className="h-5 w-5 text-[#6F6CA8] transition-colors group-hover:text-white" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
@@ -44,9 +44,9 @@ export function Header() {
               <TooltipTrigger asChild>
                 <Link
                   href="/dashboard//me"
-                  className="flex flex-col items-center gap-2 text-sm font-medium transition-colors hover: w-full py-3 rounded-lg hover:bg-accent cursor-pointer"
+                  className="group flex flex-col items-center gap-2 text-sm font-medium transition-colors hover:text-primary w-full py-3 rounded-lg hover:bg-[linear-gradient(180deg,#25244D_0%,#1F1E46_100%)] cursor-pointer"
                 >
-                  <UserRound className="text-[#3cc9f5]" />
+                  <UserRound className="text-[#6F6CA8] transition-colors group-hover:text-white" />
                 </Link>
               </TooltipTrigger>
               <TooltipContent>
@@ -62,9 +62,9 @@ export function Header() {
                   <Button
                     variant="ghost"
                     size="icon"
-                    className="text-[#3cc9f5]  rounded-full cursor-pointer"
+                    className="group text-[#6F6CA8] rounded-full cursor-pointer hover:bg-[linear-gradient(180deg,#25244D_0%,#1F1E46_100%)]"
                   >
-                    <LogOut className="h-5 w-5" />
+                    <LogOut className="h-5 w-5 group-hover:text-white" />
                   </Button>
                 </Link>
 
