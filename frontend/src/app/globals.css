@@ -119,7 +119,10 @@
 @layer base {
 
   .bg-principal {
-    background: var(--bg-principal);
+    /* background: var(--bg-principal); */
+    /* background: linear-gradient(135deg, #2E2A57 0%, #3B3672 100%); */
+    background: linear-gradient(180deg, #25244D 0%, #1F1E46 100%);
+    box-shadow: inset 0 0 12px rgba(0, 0, 0, 0.35);
   }
 
   * {
