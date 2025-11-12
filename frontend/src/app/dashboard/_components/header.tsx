@@ -9,10 +9,10 @@ export function Header() {
   return (
 
     // bg-background/95
-    <header className="fixed left-6 top-6 z-50 h-[90vh] w-[100px] border backdrop-blur-sm rounded-4xl shadow-lg flex flex-col bg-principal">
+    <header className="fixed left-6 top-6 z-50 h-[90vh] w-[80px]  backdrop-blur-sm rounded-4xl shadow-lg flex flex-col bg-principal">
       <div className="flex flex-col h-full w-full px-4 py-6">
 
-        <div className="flex items-center justify-center mb-8">
+        {/* <div className="flex items-center justify-center mb-8">
           <Link href="/dashboard" className="flex flex-col items-center gap- text-[#429e7a]">
             <HandCoins
               className="h-6 w-6 mr-2" />
@@ -20,7 +20,7 @@ export function Header() {
               PayHub
             </span>
           </Link>
-        </div>
+        </div> */}
 
         <nav className="flex flex-col items-center gap-6 flex-1">
           <div className="flex flex-col items-center gap-6 w-full">
