@@ -41,7 +41,7 @@ function Description({ initialDescription }: { initialDescription: string }) {
                 }
             }
 
-        }, 500)
+        }, 1500)
     ).current
 
     function handleChange(event: ChangeEvent<HTMLTextAreaElement>) {
