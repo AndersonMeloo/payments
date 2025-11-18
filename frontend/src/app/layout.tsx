@@ -1,8 +1,6 @@
 import type { Metadata } from "next";
 import { Geist, Geist_Mono } from "next/font/google";
 import "./globals.css";
-import { Toaster } from "@/components/ui/sonner"
-import { SessionProvider } from 'next-auth/react'
 
 const geistSans = Geist({
   variable: "--font-geist-sans",
@@ -24,24 +22,13 @@ export default function RootLayout({
 }: Readonly<{
   children: React.ReactNode;
 }>) {
-
   return (
-
     <html lang="en">
       <body
         className={`${geistSans.variable} ${geistMono.variable} antialiased`}
-        style={{
-          background: "linear-gradient(135deg, #2E2A57 0%, #3B3672 100%)",
-        }}
       >
-        <SessionProvider>
-          {children}
-          <Toaster
-            duration={3000}
-          />
-        </SessionProvider>
+        {children}
       </body>
     </html>
-
   );
 }

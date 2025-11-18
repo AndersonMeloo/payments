@@ -9,13 +9,13 @@ import {
 } from "@/components/ui/table";
 import { Card, CardContent, CardHeader, CardTitle } from "@/components/ui/card";
 
-// donates.tsx
 
-const pagamentos = [
+
+const donations = [
   {
     id: "1",
     donorName: "João Silva",
-    donorMessage: "Descrição do Pagamento",
+    donorMessage: "Adoro seu trabalho!",
     amount: 1000,
     createdAt: new Date("2023-10-01T12:00:00Z"),
   },
@@ -29,14 +29,14 @@ export function DonationTable() {
         <Table>
           <TableHeader>
             <TableRow>
-              <TableHead className="font-semibold text-black">Nome do Cliente</TableHead>
+              <TableHead className="font-semibold text-black">Nome do doador</TableHead>
               <TableHead className="font-semibold text-black">Mensagem</TableHead>
               <TableHead className="text-center font-semibold text-black">Valor</TableHead>
-              <TableHead className="text-center font-semibold text-black">Data do Pagamento</TableHead>
+              <TableHead className="text-center font-semibold text-black">Data da doação</TableHead>
             </TableRow>
           </TableHeader>
           <TableBody>
-            {pagamentos.map((donation) => (
+            {donations.map((donation) => (
               <TableRow key={donation.id}>
                 <TableCell className="font-medium">{donation.donorName}</TableCell>
                 <TableCell className="max-w-72">{donation.donorMessage}</TableCell>
@@ -54,7 +54,7 @@ export function DonationTable() {
 
       {/* Versão para mobile */}
       <div className="lg:hidden space-y-4">
-        {pagamentos.map((donation) => (
+        {donations.map((donation) => (
           <Card key={donation.id}>
             <CardHeader>
               <CardTitle className="text-lg">{donation.donorName}</CardTitle>

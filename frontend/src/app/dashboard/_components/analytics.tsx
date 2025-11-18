@@ -8,8 +8,8 @@ export async function Stats() {
     <div className="grid gap-6 grid-cols-1 md:grid-cols-3 mb-6">
 
       <StatCard
-        title="Clientes"
-        description="Total de clientes"
+        title="Apoiadores"
+        description="Total de apoiadores"
         icon={<Users className="w-8 h-8 text-blue-400" />}
         value={0}
       />
