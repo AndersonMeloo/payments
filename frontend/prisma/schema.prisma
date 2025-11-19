@@ -15,20 +15,45 @@ datasource db {
 }
 
 model User {
-  id            String          @id @default(cuid())
+  id            String           @id @default(cuid())
   name          String?
-  email         String          @unique
+  email         String           @unique
   emailVerified DateTime?
   image         String?
+  username      String?          @unique
+  bio           String?
+
   accounts      Account[]
   sessions      Session[]
   // Optional for WebAuthn support
   Authenticator Authenticator[]
- 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+
+  payments      Payments[]      @relation("UserPayments")
+
+  createdAt     DateTime         @default(now())
+  updatedAt     DateTime         @updatedAt
 }
- 
+
+model Payments {
+  id                                         String         @id @default(cuid())
+  amount       String // Em centavos
+  payerName    String // Nome do Pagador
+  payerMessage String // Mensagem do Pagador
+
+  userId                                     String
+
+  user                                       User          @relation("UserPayments", fields: [userId], references: [id])
+
+  createdAt                                  DateTime       @default(now())
+  status                                     PaymentStatus  @default(PENDING)
+}
+
+enum PaymentStatus {
+  PENDING
+  COMPLETED
+  FAILED
+}
+
 model Account {
   userId            String
   type              String
@@ -41,36 +66,36 @@ model Account {
   scope             String?
   id_token          String?
   session_state     String?
- 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
- 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
-  @@id([provider, providerAccountId])
+
+  createdAt         DateTime  @default(now())
+  updatedAt         DateTime  @updatedAt
+
+  user              User     @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([provider,   providerAccountId])
 }
- 
+
 model Session {
-  sessionToken String   @unique
+  sessionToken String    @unique
   userId       String
   expires      DateTime
   user         User     @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
-  createdAt DateTime @default(now())
-  updatedAt DateTime @updatedAt
+
+  createdAt    DateTime  @default(now())
+  updatedAt    DateTime  @updatedAt
 }
- 
+
 model VerificationToken {
   identifier String
   token      String
   expires    DateTime
- 
+
   @@id([identifier, token])
 }
- 
+
 // Optional for WebAuthn support
 model Authenticator {
-  credentialID         String  @unique
+  credentialID         String   @unique
   userId               String
   providerAccountId    String
   credentialPublicKey  String
@@ -78,9 +103,8 @@ model Authenticator {
   credentialDeviceType String
   credentialBackedUp   Boolean
   transports           String?
- 
-  user User @relation(fields: [userId], references: [id], onDelete: Cascade)
- 
-  @@id([userId, credentialID])
-}
 
+  user                 User    @relation(fields: [userId], references: [id], onDelete: Cascade)
+
+  @@id([userId,        credentialID])
+}
