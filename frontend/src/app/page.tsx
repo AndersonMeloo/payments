@@ -1,24 +1,37 @@
 import { FeatureCard } from "@/components/FeatureCard";
 import { Button } from "@/components/ui/button";
 import { ArrowRight, HandCoins, Heart, Shield, Zap } from "lucide-react";
+import { signIn } from "@/lib/auth";
 
 
 export default function Home() {
+
+  async function handleRegister() {
+
+    "use server";
+
+    await signIn("github", { redirectTo: "/dashboard" });
+  }
+
   return (
+
     <div className="flex flex-col min-h-screen bg-gradient-to-b from-white to-gray-50">
+
       <header className="container mx-auto py-6 px-4">
         <div className="flex items-center">
           <div className="flex items-center text-amber-500 font-bold text-xl">
             <HandCoins className="h-6 w-6 mr-2" />
-            <span>ApoiaDev</span>
+            <span>Pay Hub</span>
           </div>
         </div>
       </header>
 
       <main className="flex-1 flex items-center justify-center">
         <div className="container mx-auto px-4 py-12 md:py-24">
+
           <div className="max-w-3xl mx-auto">
             <div className="text-center space-y-6">
+
               <div className="inline-block bg-amber-100 text-amber-800 px-4 py-1.5 rounded-full text-sm font-medium mb-2">
                 Plataforma para criadores de conteúdo
               </div>
@@ -33,7 +46,7 @@ export default function Home() {
               </p>
 
               <div className="pt-4">
-                <form>
+                <form action={handleRegister}>
                   <Button
                     type="submit"
                     size="lg"
@@ -44,8 +57,8 @@ export default function Home() {
                   </Button>
                 </form>
               </div>
-            </div>
 
+            </div>
           </div>
 
           <div className="mt-16 grid grid-cols-1 md:grid-cols-3 gap-6">
@@ -65,6 +78,7 @@ export default function Home() {
               description="Transações protegidas e transferências automáticas para sua conta bancária."
             />
           </div>
+
         </div>
       </main>
     </div>
