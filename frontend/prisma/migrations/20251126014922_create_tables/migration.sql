@@ -1,5 +1,5 @@
 -- CreateEnum
-CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'COMPLETED', 'FAILED');
+CREATE TYPE "PaymentStatus" AS ENUM ('PENDING', 'PAID', 'FAILED');
 
 -- CreateTable
 CREATE TABLE "User" (
@@ -19,7 +19,7 @@ CREATE TABLE "User" (
 -- CreateTable
 CREATE TABLE "Payments" (
     "id" TEXT NOT NULL,
-    "amount" TEXT NOT NULL,
+    "amount" INTEGER NOT NULL,
     "payerName" TEXT NOT NULL,
     "payerMessage" TEXT NOT NULL,
     "userId" TEXT NOT NULL,
