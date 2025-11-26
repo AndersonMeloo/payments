@@ -36,7 +36,7 @@ model User {
 
 model Payments {
   id                                         String         @id @default(cuid())
-  amount       String // Em centavos
+  amount       Int // Em centavos
   payerName    String // Nome do Pagador
   payerMessage String // Mensagem do Pagador
 
@@ -50,7 +50,7 @@ model Payments {
 
 enum PaymentStatus {
   PENDING
-  COMPLETED
+  PAID
   FAILED
 }
 
